@@ -15,10 +15,10 @@ public class Clss {
     @Id
     private String day;
 
-    private String one;
-    private String two;
-    private String three;
-    private String four;
-    private String five;
-    private String six;
+//    private String one;
+//    private String two;
+//    private String three;
+//    private String four;
+//    private String five;
+//    private String six;
 }

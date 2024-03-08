@@ -63,4 +63,56 @@ public class FacultyRepo {
         }
         return Output;
     }
+    @Transactional
+    public void UpdateQuery(String name, String day, int classyr, String branch_sec, String hour) {
+        String []nameParts = name.split("-");
+        try{
+            String SetBranchSectionInTimeTableOFFaculty = classyr + "-" + branch_sec;
+            if(hour.equalsIgnoreCase("one"))
+            entityManager.createNativeQuery("UPDATE staff SET one=? WHERE subject=? AND day=? AND name=?")
+                    .setParameter(1, SetBranchSectionInTimeTableOFFaculty)
+                    .setParameter(2, nameParts[0])
+                    .setParameter(3, day)
+                    .setParameter(4, nameParts[1])
+                    .executeUpdate();
+            else if(hour.equalsIgnoreCase("two"))
+                entityManager.createNativeQuery("UPDATE staff SET two=? WHERE subject=? AND day=? AND name=?")
+                        .setParameter(1, SetBranchSectionInTimeTableOFFaculty)
+                        .setParameter(2, nameParts[0])
+                        .setParameter(3, day)
+                        .setParameter(4, nameParts[1])
+                        .executeUpdate();
+            else if(hour.equalsIgnoreCase("three"))
+                entityManager.createNativeQuery("UPDATE staff SET three=? WHERE subject=? AND day=? AND name=?")
+                        .setParameter(1, SetBranchSectionInTimeTableOFFaculty)
+                        .setParameter(2, nameParts[0])
+                        .setParameter(3, day)
+                        .setParameter(4, nameParts[1])
+                        .executeUpdate();
+            else if(hour.equalsIgnoreCase("four"))
+                entityManager.createNativeQuery("UPDATE staff SET four=? WHERE subject=? AND day=? AND name=?")
+                        .setParameter(1, SetBranchSectionInTimeTableOFFaculty)
+                        .setParameter(2, nameParts[0])
+                        .setParameter(3, day)
+                        .setParameter(4, nameParts[1])
+                        .executeUpdate();
+            else if(hour.equalsIgnoreCase("five"))
+                entityManager.createNativeQuery("UPDATE staff SET five=? WHERE subject=? AND day=? AND name=?")
+                        .setParameter(1, SetBranchSectionInTimeTableOFFaculty)
+                        .setParameter(2, nameParts[0])
+                        .setParameter(3, day)
+                        .setParameter(4, nameParts[1])
+                        .executeUpdate();
+            else if(hour.equalsIgnoreCase("six"))
+                entityManager.createNativeQuery("UPDATE staff SET six=? WHERE subject=? AND day=? AND name=?")
+                        .setParameter(1, SetBranchSectionInTimeTableOFFaculty)
+                        .setParameter(2, nameParts[0])
+                        .setParameter(3, day)
+                        .setParameter(4, nameParts[1])
+                        .executeUpdate();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
 }
